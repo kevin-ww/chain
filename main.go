@@ -45,14 +45,6 @@ func StrToUint8(s string) (uint8,error){
 
 func main(){
 
-	i, err := StrToUint8("380")
-		//strconv.ParseInt("192", 10, 8)
-
-	if err !=nil{
-		fmt.Printf("%v", err)
-	}
-
-	fmt.Printf("%d",i)
 }
 
 func test(){

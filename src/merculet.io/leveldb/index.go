@@ -1,32 +1,58 @@
 package leveldb
 
-import "github.com/gpmgo/gopm/modules/log"
+import (
+	"fmt"
+	"github.com/syndtr/goleveldb/leveldb"
+)
 
-func instantiate(dbpath string){
-	if dbpath ==""{
-		log.Fatal("db path must not be empty")
+
+
+//func instantiate(dbpath string){
+//	if dbpath ==""{
+//		log.Fatal("db path must not be empty")
+//	}
+//}
+
+type Bucket struct{
+
+}
+
+
+type Record struct{
+	Id string
+
+}
+
+type BucketDB struct {
+	bucketName string
+	bucket *leveldb.DB
+}
+
+func GetBucketDB() (bucketDb *BucketDB) {
+
+	if bucketDb == nil {
+		INSTANCE := NewStorage("/tmp/db")
+		bucketDb := NewBucketDB(INSTANCE, "level-a")
+		fmt.Printf("%v", bucketDb)
 	}
+
+	return bucketDb
 }
 
+func NewBucketDB(storage *Storage, bucket string) (bucketDb *BucketDB) {
 
-type BucketDB struct{
-
+	return nil
 }
 
-func NewBucketDB(bucket string){
-
-	//var bucket = NewStorage()
-}
-
-
-func (b *BucketDB) insert(record interface{}){
+func (b *Bucket) insert(record interface{}) {
+	GetBucketDB().bucket.Put(nil,nil, nil)
 
 }
 
-func (b *BucketDB) update(record interface{}){
+func (b *Bucket) update(record interface{}) {
 
 }
 
-func (b *BucketDB) query(q interface{}){
+func (b *Bucket) query(q interface{}) {
 
 }
